@@ -1,0 +1,264 @@
+___
+Disciplina.: [[Arquitetura de Computadores]]
+___
+## <mark style="background: #FFF3A3A6;">Aula</mark>
+
+**1- Limites da Computação**
+
+Computadores resolvem uma série de problemas e tarefas mas há problemas e tarefas que ele não consegue realizar.
+
+Em Teoria da Computação estudamos, entre outros temas, os limites da Computação, procurando identificar se pode ser resolvido por uma máquina e a que preço, não só em termos de tempo de processamento mas em número de operações computacionais.
+
+Problemas que tem solução computacional equivalente a funções matemáticas exponenciais costumam ser muito complicados ou mesmo irrealizáveis.
+
+Funções exponenciais crescem muito rápido.
+
+Veja  o que aconteceria se fôssemos preencher um tabuleiro de xadrez seguindo a ideia de que a cada casa, teríamos o dobro de elementos da casa anterior:
+
+![](https://paperx-dex-assets.s3.sa-east-1.amazonaws.com/images/1668204354149-nXKGcPmkKV.png)
+
+Cada cssa contém 2n  elementos. Se fôssemos representar grãos de areia, não demoraria ao término de preencher o tabuleiro, teríamos mais grãos de areia do que a quantidade total que existe no planeta Terra! Assim soluções exponenciais para certos problemas são muito difíceis de serem tratadas mesmo por um computador
+
+**O problema do Caixeiro Viajante: um clássico da Computação**
+
+Um vendedor precisa visitar um certo número de cidades e retornar para casa ao fim do dia. Para elevar seus ganhos, precisa percorrer o itinerário mais curto entre essas cidades. Sabe-se qual a distância entre cada uma das cidades.
+
+Exemplo:
+
+Percorrer as cidades A, B, C, D e depois retornar à cidade de origem A.
+
+![](https://paperx-dex-assets.s3.sa-east-1.amazonaws.com/images/1668204375193-RkuUFvfFor.png)
+
+A velocidade para se encontrar o menor percurso entre um conjunto de cidades depende do computador usado e do número de cidades!
+
+Para **3** cidades existem **3!** combinações possíveis, isto é, **6** combinações para serem testadas.
+
+Para **10** cidades existem **10!** combinações, mais de **3 milhões** de combinações !!
+
+**2 - Crescimento Assintótico**
+
+Problemas semelhantes a esse são de extrema importância para a indústria, considere, por exemplo, as várias etapas envolvidas na montagem de um motor e que devem ser efetuadas em uma certa ordem - esse é conhecido como **Problema do Sequenciamento de Tarefas**.
+
+**O crescimento da função é exponencial e extremamente trabalhoso mesmo para um computador, daí a importância da análise de complexidade de algoritmos: estudar meios para se conhecer melhor problemas e os limites de suas soluções.**
+
+Na análise de algoritmos, não interessa a velocidade do computador mas sim o número de passos computacionais envolvidos.
+
+Soluções computacionais (algoritmos) que operam em velocidade logarítmica, linear ou polinomial são incomparavelmente menos custosos computacionalmente do que algoritmos que operam de forma exponencial. Veja a tabela abaixo, em que N representa o número de elementos de entrada envolvidos e o processamentos de cada instrução é um bilionésimo de segundo:
+
+![](https://paperx-dex-assets.s3.sa-east-1.amazonaws.com/images/1668204408793-EG22NmrbLM.png)
+
+​Olhando graficamente agora, repare que a partir de um certo tamanho **n** de entrada, a função exponencial cresce muito mais rápido:​  
+
+![](https://paperx-dex-assets.s3.sa-east-1.amazonaws.com/images/1668204427335-eQir368ye3.png)
+
+**3 - Buscas e Ordenações**
+
+Se você pensar bem,  quase tudo que fazemos em termos de computação é a busca de elementos em uma lista ou ordenação de elementos em uma lista!
+
+Métodos de **Busca** e **Ordenação** são a essência de muitos problemas e soluções em Computação!
+
+**Busca sequencial ou linear**
+
+A busca sequencial ou linear é muito importante em estudos comparativos de análise de algoritmos. Dada uma lista de elementos, procura-se saber se um determinado elemento está na lista ou não. Leia atentamente a figura:
+
+![](https://paperx-dex-assets.s3.sa-east-1.amazonaws.com/images/1668204484613-CSGjSg7UCp.png)
+
+Percebe-se que a busca sequencial é um algoritmo pouco eficiente para encontrar um item em uma lista grande de elementos. No pior caso, todos os elementos devem ser visitados apenas para se descobrir que o elemento não estava na lista !
+
+**Busca binária**
+
+![](https://paperx-dex-assets.s3.sa-east-1.amazonaws.com/images/1668204506614-hax91mK8ao.png)
+
+Neste caso, a lista está previamente ordenada.  O método faz sucessivas divisões na lista comparando com o valor maior da primeira lista e descarta metade da lista até encontrar o elemento que está procurando.
+
+**Comparando busca sequencial com busca binária**
+
+- Se a lista não está ordenada, a busca binária não se aplica.
+- A busca sequencial é muito ineficiente para conjuntos grandes de valores.
+
+**Olhando para os gráficos de crescimento assintótico, notamos:**
+
+![](https://paperx-dex-assets.s3.sa-east-1.amazonaws.com/images/1668204528927-yV1Dxpv2mE.png)
+
+Costuma-se dizer que a busca binária tem complexidade n e que a busca binária tem complexidade log n, fazendo muito menos comparações a partir de um certo n de entrada. O gráfico da Busca binária  cresce mais devagar, fazendo deste método mais eficiente do que a busca sequencial.
+
+**4 – Máquinas de Turing**
+
+É um dispositivo imaginário que formou a estrutura para fundamentar a ciência da computação moderna.
+
+Em 1936 foi formalizado o termo algoritmo: um conjunto finito de instruções simples e precisas, que são descritas com um número finito de símbolos. “Qualquer processo aceito por nós homens como um algoritmo é precisamente o que uma máquina de Turing pode fazer” (Alonzo Church, matemático).
+
+![](https://paperx-dex-assets.s3.sa-east-1.amazonaws.com/images/1668204550233-ekBGYR0Gnj.png)
+
+**Exemplo de Máquina de Turing**
+
+As duas primeiras instruções (linhas 1 e 2) descrevem o que acontecerá no estado s0. Há duas possibilidades: na primeira, a máquina faz a leitura de um dígito ‘1’, movimentará a cabeça para a direita e permanecerá no estado s0. Na segunda, se for lido um dígito ‘0’ a máquina deixará o estado s0, entrará no estado s1 e escreverá o dígito ‘1’ nessa transição.
+
+Linhas 3 e 4 mostram o que acontecerá no estado s1, ou seja, se for lido o dígito ‘1’, a máquina movimentará a cabeça para a esquerda e permanecerá no estado s1. Se for lido o dígito ‘0’, a cabeça será movimentada para a direita e a máquina passará para o estado s2.
+
+Como não há instruções definidas pelo algoritmo no estado s2, a máquina para a sua execução (condição de parada) ao atingir este estado.
+
+![](https://paperx-dex-assets.s3.sa-east-1.amazonaws.com/images/1668204569252-lVyxpeTkfr.png)
+
+As duas primeiras instruções (linhas 1 e 2) descrevem o que acontecerá no estado s0. Há duas possibilidades: na primeira, a máquina faz a leitura de um dígito ‘1’, movimentará a cabeça para a direita e permanecerá no estado s0. Na segunda, se for lido um dígito ‘0’ a máquina deixará o estado s0, entrará no estado s1 e escreverá o dígito ‘1’ nessa transição.
+
+Linhas 3 e 4 mostram o que acontecerá no estado s1, ou seja, se for lido o dígito ‘1’, a máquina movimentará a cabeça para a esquerda e permanecerá no estado s1. Se for lido o dígito ‘0’, a cabeça será movimentada para a direita e a máquina passará para o estado s2.
+
+Como não há instruções definidas pelo algoritmo no estado s2, a máquina para a sua execução (condição de parada) ao atingir este estado.
+
+Acompanhe na figura:
+
+O leitor lê 1 no estado SO. A máquina move a fita para a direita e fica no estado SO. Isso acontece sucessivamente.
+
+![](https://paperx-dex-assets.s3.sa-east-1.amazonaws.com/images/1668204590336-F2bg15Wls9.png)
+
+​O leitor lê 0 ainda no estado SO. Nesse momento a máquina escreve 1 na fita e muda o estado para S1. A seguir lê 1 e está no estado S1. A máquina desloca a fita para a esquerda e o processo se repete.​  
+
+![](https://paperx-dex-assets.s3.sa-east-1.amazonaws.com/images/1668204614286-WgOSNmrvoQ.png)
+
+​Agora a leitora lê 0 enquanto está no estado S1. Muda para o estado S2 e desloca a fita. Como não há o que fazer no estado S2 a máquina pára.​  
+
+![](https://paperx-dex-assets.s3.sa-east-1.amazonaws.com/images/1668204635307-oqCZ0955RZ.png)
+
+A máquina de Turing Universal incorpora o princípio essencial do computador: uma máquina simples que poderá executar qualquer tarefa bem definida, desde que especificada com um programa apropriado.
+
+**5 – Autômatos finitos**
+
+Portas automáticas e elevadores
+
+Um estado pode representar em qual estado o elevador está e as entradas podem ser os sinais recebidos dos botões.
+
+Tal computador precisaria de poucos bits para guardar essa informação.
+
+Dispositivos desse tipo requerem que se utilize a metodologia e a terminologia de autômatos finitos.
+
+Modelos para computadores quando existe pouca disponibilidade de memória. Esses computadores estão no coração de vários dispositivos eletromecânicos (forno de micro-ondas, máquinas de lavar, portas automáticas, elevadores).
+
+Lida com definições e propriedades de modelos matemáticos da computação.
+
+Autômatos finitos são usados em processamento de textos, compiladores e projetos de hardware.
+
+O modelo denominado gramática livre de contexto  é utilizado em linguagens de programação e inteligência artificial
+
+Autômatos finitos
+
+É uma lista que contém cinco objetos (uma 5-upla):
+
+- conjunto de estado
+- alfabeto de entrada
+- função de transição
+- estado inicial 
+- estados de aceitação
+
+Definições formais:
+
+**Alfabeto:** qualquer conjunto finito não vazio constituído por caracteres.
+
+Ex:
+
+∑1 = {0, 1}
+
+∑2 = {a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p}
+
+**Cadeia sobre um alfabeto:**
+
+Sequência finita de símbolos de um alfabeto.
+
+Ex:
+
+010011 é uma cadeia sobre ∑1.
+
+abracadabra é uma cadeia sobre ∑2.
+
+Um autômato de 3 estados
+
+![](https://paperx-dex-assets.s3.sa-east-1.amazonaws.com/images/1668204657228-80bAwrSiaD.png)
+
+**Diagrama de estado** M1. O autômato tem 3 **estados**, q1, q2, q3. O estado inicial q1 é indicado pela seta apontando para ele a partir do nada. O **estado de aceitação q2, é aquele com círculo duplo**. As setas saindo de um estado para o outro são chamadas de **transições**.
+
+Quando o autômato recebe uma cadeia de entrada tal como 1101, ele processa essa cadeia e produz uma saída. A saída será **aceita** se estiver no estado de aceitação ou **rejeitada**, caso contrário.
+
+**O que acontece para a entrada: 1101 ? ACEITA! Já 0011110?  NÃO ACEITA!**
+
+Essa máquina aceita 1, 01, 11, 0101010101, entre infinitas outras.
+
+Na verdade, **ela aceita qualquer cadeia que termine com o símbolo 1**, pois ela vai para o estado de aceitação sempre que lê o símbolo 1.
+
+Aceita também cadeias que terminem com um número par de 0 's, seguindo o último 1.
+
+Referência Bibliográfica
+
+BROOKSHEAR, J.G. **Ciência da Computação: uma visão abrangente.** Porto Alegre: Bookman, 2013.
+
+CORMEN, Thomas H. **Algoritmos**. Rio de Janeiro, Gen LTC, s/a.
+## <mark style="background: #BBFABBA6;">Resumo</mark>
+
+**1- Limites da Computação**  
+Os computadores são poderosos, mas há problemas que não conseguem resolver. Em **Teoria da Computação**, estudamos os limites dessas máquinas, verificando **se um problema pode ser resolvido e a que custo** (tempo e número de operações). ⏳💡
+
+Funções exponenciais crescem muito rápido, tornando certos problemas, como o **Problema do Caixeiro Viajante**, computacionalmente inviáveis. Por exemplo, com 10 cidades, há mais de 3 milhões de combinações possíveis! 🌍🛣️
+
+---
+
+**2- Crescimento Assintótico**  
+Analisar o **crescimento assintótico** ajuda a entender a eficiência dos algoritmos. Soluções **logarítmicas, lineares ou polinomiais** são mais eficientes que soluções exponenciais. 📊📉
+
+Por exemplo:
+
+- **Busca Sequencial** percorre uma lista elemento por elemento, mas é ineficiente para listas grandes. 🔍📋
+- **Busca Binária**, com listas ordenadas, divide o problema, reduzindo o número de comparações. 🔍✂️
+
+Gráficos mostram que algoritmos logarítmicos crescem mais devagar, sendo mais rápidos para entradas grandes. ⚡📉
+
+---
+
+**3- Máquinas de Turing**  
+As **Máquinas de Turing** são modelos teóricos que definem o que é um **algoritmo**. Elas possuem estados, uma fita infinita para leitura e escrita, e transições definidas por regras. 🔄🎞️
+
+- **Máquina de Turing Universal**: Simula qualquer algoritmo bem definido, formando a base da computação moderna. 🌐🤖
+- Cada transição representa uma **ação específica**, como mover a fita ou mudar de estado. 📜🔢
+
+---
+
+**4- Autômatos Finitos**  
+**Autômatos finitos** modelam sistemas simples, como portas automáticas e elevadores, com memória limitada. 🚪📏  
+Um autômato é definido por:
+
+- Estados 🌀
+- Alfabeto de entrada 🔤
+- Função de transição 🔄
+- Estado inicial ➡️
+- Estados de aceitação ✅
+
+Por exemplo, um autômato pode aceitar **cadeias que terminam com '1' ou que possuem um número par de '0's após o último '1'**. 🔢✔️
+## <mark style="background: #FFB86CA6;">Flash Cards</mark>
+
+#flashcards-ArquiteturaDeComputadores
+
+##### Exercícios da Aula
+
+###### GPT
+
+**Limites da Computação::Estudo dos problemas que podem ser resolvidos por máquinas e a complexidade envolvida. ⏳🤖**  
+**Funções Exponenciais::Crescem muito rápido, tornando certos problemas computacionalmente inviáveis. 📈🚫**  
+**Problema do Caixeiro Viajante::Busca o menor percurso entre várias cidades, com crescimento exponencial de combinações. 🌍🛣️**
+
+---
+
+**Crescimento Assintótico::Estudo da complexidade de algoritmos baseada no número de operações computacionais. 📊📚**  
+**Busca Sequencial::Percorre uma lista elemento por elemento até encontrar o alvo. 🔍📋**  
+**Busca Binária::Divide a lista ordenada em partes para encontrar o alvo mais rapidamente. 🔍✂️**  
+**Complexidade Logarítmica::Cresce mais devagar, tornando os algoritmos mais eficientes. 📉⚡**
+
+---
+
+**Máquinas de Turing::Modelo teórico que formalizou o conceito de algoritmo e é base para a computação moderna. 📜🤔**  
+**Máquina de Turing Universal::Simula qualquer algoritmo bem definido com um programa apropriado. 🌐🖥️**  
+**Estados da Máquina de Turing::Representam ações e transições baseadas nas leituras da fita. 🔄🎞️**
+
+---
+
+**Autômatos Finitos::Modelos matemáticos para sistemas com memória limitada, como portas automáticas e elevadores. 🚪📏**  
+**Cinco Componentes do Autômato::Estados, alfabeto, função de transição, estado inicial, estados de aceitação. 🔢🔠**  
+**Cadeia Aceita pelo Autômato::Sequência que leva ao estado de aceitação. ✅🔗**  
+**Exemplo de Autômato::Aceita cadeias que terminam com o símbolo '1' ou com um número par de '0's após o último '1'. 🔢✔️**
